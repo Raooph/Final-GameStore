@@ -2,8 +2,13 @@ import "./Game-Card.css";
 import { useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 export const GameCard=({game})=>{
   const [addToWishList,setAddToWishList]=useState(false);
+  const navigate=useNavigate();
+  const goToDetails=()=>{
+    navigate(`/game/${game.id}`)
+  }
   
   useEffect(()=>{
     const wishlist=JSON.parse(localStorage.getItem("wishlist"))||[];
@@ -24,7 +29,7 @@ export const GameCard=({game})=>{
   }
 }
     return (
-        <div key={game.id} className="game-card">
+        <div key={game.id} onClick={goToDetails} className="game-card">
                 <div 
                   className="game-img" 
                   style={{ 
