@@ -1,0 +1,22 @@
+.search-box {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 2px solid #2a2f4a;
+  background: #1a1f3a;
+  color: #fff;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.search-box input:focus {
+  border-color: #00d9ff;
+}
+

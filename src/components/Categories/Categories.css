@@ -1,0 +1,24 @@
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  padding: 10px 25px;
+  background: #1a1f3a;
+  border: 2px solid #2a2f4a;
+  color: #aaa;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.category-btn:hover,
+.category-btn.active {
+  background: linear-gradient(135deg, #00d9ff, #b537f2);
+  border-color: transparent;
+  color: #fff;
+}
