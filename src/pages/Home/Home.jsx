@@ -46,7 +46,7 @@ export const Home=()=>{
         ) : (
           <div className="games-grid">
             {games.map((game) => (
-                <GameCard key={game.id} game={game} />
+                <GameCard  key={game.id} game={game} />
             ))}
           </div>
         )}

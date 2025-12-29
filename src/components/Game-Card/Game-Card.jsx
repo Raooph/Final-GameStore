@@ -1,5 +1,28 @@
 import "./Game-Card.css";
+import { useEffect, useState } from "react";
+import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
 export const GameCard=({game})=>{
+  const [addToWishList,setAddToWishList]=useState(false);
+  
+  useEffect(()=>{
+    const wishlist=JSON.parse(localStorage.getItem("wishlist"))||[];
+    const isInWishlist=wishlist.some(item=>item.id===game.id);
+    setAddToWishList(isInWishlist);
+  },[game.id]);
+
+  const addingToList=()=>{
+    const wishlist=JSON.parse(localStorage.getItem("wishlist"))||[];
+    if(!addToWishList){
+      wishlist.push(game);
+      localStorage.setItem("wishlist",JSON.stringify(wishlist));
+      setAddToWishList(true);
+  }else{
+    const updatedWishlist=wishlist.filter(item=>item.id!==game.id);
+    localStorage.setItem("wishlist",JSON.stringify(updatedWishlist));
+    setAddToWishList(false);
+  }
+}
     return (
         <div key={game.id} className="game-card">
                 <div 
@@ -12,9 +35,9 @@ export const GameCard=({game})=>{
                     backgroundPosition: 'center'
                   }}
                 >
-                  {game.metacritic && (
-                    <span className="badge">{game.metacritic}</span>
-                  )}
+                    <span onClick={addingToList} className="badge"><CiHeart size={22} style={{ display:` ${addToWishList ? "none":"block"}`}} /></span>
+                    <span onClick={addingToList} className="badge"><FaHeart className="redHeart" size={19} style={{ display:` ${addToWishList ? "block":"none"}`}} /></span>
+                  
                 </div>
                 <div className="game-info">
                   <div className="game-title">{game.name}</div>
