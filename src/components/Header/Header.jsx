@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Header.css";
 import { IoMenu, IoClose } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,12 +18,12 @@ export const Header = () => {
     <header className="header">
       <div className="container">
         <div className="header-content">
-          <div className="logo">NEXUS</div>
+            <NavLink to="/" className="logo">NEXUS</NavLink>
           
           <nav className="nav">
-            <a href="/">Home</a>
-            <a href="/wishlist">Wishlist</a>
-            <a href="/library">My Library</a>
+              <NavLink to="/"></NavLink>
+              <NavLink to="/wishlist">Wishlist</NavLink>
+              <NavLink to="/my-library">My Library</NavLink>
           </nav>
 
           <div className="menu-icon" onClick={handleMenuClick}>
