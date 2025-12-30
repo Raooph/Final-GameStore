@@ -4,6 +4,7 @@ import "./Card-Details.css";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 import { NotFound } from "../Not-Found/Not-Found";
+import { Loader } from "../../components/Loader/Loader";
 
 const API_KEY = "f40d210066494ecfbba32ff5b312d384";
 
@@ -44,7 +45,7 @@ export const CardDetails = () => {
     fetchGameDetails();
   }, [id]);
 
-  if (loading) return <p className="loading">Loading...</p>;
+  if (loading) return <Loader/>;
 
   if (notFound) {
     return (
@@ -81,8 +82,6 @@ export const CardDetails = () => {
           <p className="genres">
             {game.genres?.map(g => g.name).join(", ")}
           </p>
-
-          {/* WISHLIST BUTTON */}
           <button className="wishlist-btn" onClick={toggleWishlist}>
             {isInWishlist ? (
               <>

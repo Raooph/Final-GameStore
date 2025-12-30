@@ -4,6 +4,7 @@ import { fetchGames, fetchGenres } from '../../service/app';
 import { Categories } from '../../components/Categories/Categories';
 import { GameCard } from '../../components/Game-Card/Game-Card';
 import { SearchBox } from '../../components/Search-Box/Search-Box';
+import { Loader } from '../../components/Loader/Loader';
 export const Home=()=>{
   const [activeCategory, setActiveCategory] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
@@ -42,7 +43,7 @@ export const Home=()=>{
         />
 
         {loading ? (
-          <div className="loading">Loading games...</div>
+          <Loader/>
         ) : (
           <div className="games-grid">
             {games.map((game) => (

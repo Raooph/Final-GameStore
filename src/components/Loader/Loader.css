@@ -1,0 +1,83 @@
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.skeleton-card {
+  background: #1a1f3a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.skeleton-img {
+  height: 200px;
+  background: linear-gradient(
+    90deg,
+    #1a1f3a 25%,
+    #252b55 37%,
+    #1a1f3a 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s infinite;
+}
+.skeleton-info {
+  padding: 20px;
+}
+
+.skeleton-line {
+  height: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: linear-gradient(
+    90deg,
+    #1a1f3a 25%,
+    #252b55 37%,
+    #1a1f3a 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+.skeleton-line.title {
+  height: 22px;
+  width: 70%;
+}
+
+.skeleton-line.genre {
+  width: 50%;
+}
+
+.skeleton-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.skeleton-line.small {
+  width: 30%;
+}
+
+.skeleton-line.price {
+  width: 25%;
+}
+
+.skeleton-btn {
+  height: 40px;
+  margin-top: 18px;
+  border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    #00d9ff 25%,
+    #b537f2 37%,
+    #00d9ff 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -400% 0;
+  }
+}
