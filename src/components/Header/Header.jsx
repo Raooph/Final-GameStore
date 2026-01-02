@@ -25,6 +25,7 @@ export const Header = () => {
               <NavLink to="/">Home</NavLink>
               <NavLink to="/wishlist">Wishlist</NavLink>
               <NavLink to="/my-library">My Library</NavLink>
+              <NavLink to="/login">Log in</NavLink>
           </nav>
 
           <div className="menu-icon" onClick={handleMenuClick}>
@@ -48,6 +49,12 @@ export const Header = () => {
             <a href="/library" className="mobile-nav-link" onClick={closeMenu}>
               <span className="link-number">03</span>
               <span className="link-text">My Library</span>
+              <span className="arrow">→</span>
+            </a>
+
+            <a href="/login" className="mobile-nav-link" onClick={closeMenu}>
+              <span className="link-number">04</span>
+              <span className="link-text">Login</span>
               <span className="arrow">→</span>
             </a>
 

@@ -7,6 +7,8 @@ import { Wishlist } from './pages/Wishlist/Wishlist';
 import { MyLibrary } from './pages/My-Library/My-Library';
 import { CardDetails } from './pages/Card-Details/Card-Details';
 import { NotFound } from './pages/Not-Found/Not-Found';
+import { Login } from './pages/Login/Login';
+import { Signup } from './pages/Sign-up/Sign-up';
 
 
 
@@ -19,6 +21,8 @@ function App() {
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/my-library" element={<MyLibrary />} />
             <Route path="/game/:id" element={<CardDetails />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/sign-up" element={<Signup />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
     </div>

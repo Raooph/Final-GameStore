@@ -78,8 +78,44 @@
   gap: 8px;
   transition: transform 0.2s, opacity 0.3s;
 }
+.buy {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #28a745, #218838);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 100px;
+  gap: 8px;
+  transition: transform 0.2s, opacity 0.3s;
+}
+.remove-buy {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  margin-top: 20px;
+  padding: 12px 20px;
+ border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+    gap: 8px;
+  transition: transform 0.2s, opacity 0.3s;
+  width: 180px;
+}
 
 .wishlist-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+.buy:hover {
   opacity: 0.9;
   transform: translateY(-2px);
 }
