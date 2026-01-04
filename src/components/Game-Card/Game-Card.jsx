@@ -29,7 +29,7 @@ export const GameCard=({game})=>{
   }
 }
     return (
-        <div key={game.id} onClick={goToDetails} className="game-card">
+        <div key={game.id}  className="game-card">
                 <div 
                   className="game-img" 
                   style={{ 
@@ -57,7 +57,7 @@ export const GameCard=({game})=>{
                       {game.released ? new Date(game.released).getFullYear() : 'TBA'}
                     </span>
                   </div>
-                  <button className="buy-btn">View Details</button>
+                  <button onClick={goToDetails} className="view-details">View Details</button>
                 </div>
               </div>
     )

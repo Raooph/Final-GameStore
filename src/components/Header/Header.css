@@ -200,6 +200,22 @@
   z-index: 9998;
   animation: fadeIn 0.3s ease;
 }
+.nav-badge-link {
+  position: relative;
+}
+
+.counter {
+  position: absolute;
+  top: -6px;
+  right: -14px;
+  background: red;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
 
 @media (max-width: 768px) {
   .nav {

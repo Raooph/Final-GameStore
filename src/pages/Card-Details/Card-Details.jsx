@@ -10,12 +10,12 @@ const API_KEY = "f40d210066494ecfbba32ff5b312d384";
 
 export const CardDetails = () => {
   const { id } = useParams();
-  const [buy,setBuy]=useState(false)
+
   const [game, setGame] = useState(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
-  const [isInlibrary, setIsInlibrary] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
+  const [isInlibrary, setIsInlibrary] = useState(false);
 
   useEffect(() => {
     const fetchGameDetails = async () => {
@@ -34,8 +34,13 @@ export const CardDetails = () => {
         setGame(data);
 
         const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-        const exists = wishlist.find(item => item.id === data.id);
-        setIsInWishlist(!!exists);
+        const inWishlist = wishlist.find(item => item.id === data.id);
+        setIsInWishlist(!!inWishlist);
+
+        const library = JSON.parse(localStorage.getItem("library")) || [];
+        const inLibrary = library.find(item => item.id === data.id);
+        setIsInlibrary(!!inLibrary);
+
       } catch (error) {
         setNotFound(true);
       } finally {
@@ -46,13 +51,8 @@ export const CardDetails = () => {
     fetchGameDetails();
   }, [id]);
 
-  if (loading) return <Loader/>;
-
-  if (notFound) {
-    return (
-      <NotFound/>
-    );
-  }
+  if (loading) return <Loader />;
+  if (notFound) return <NotFound />;
 
   const toggleWishlist = () => {
     const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
@@ -68,20 +68,19 @@ export const CardDetails = () => {
     }
   };
 
-  const toggleBuy=()=>{
-    setBuy(!buy);
-       const library = JSON.parse(localStorage.getItem("library")) || [];
+  const toggleBuy = () => {
+    const library = JSON.parse(localStorage.getItem("library")) || [];
 
     if (!isInlibrary) {
       library.push(game);
       localStorage.setItem("library", JSON.stringify(library));
       setIsInlibrary(true);
     } else {
-      const updated = library.filter(i => i.id !== game.id);
+      const updated = library.filter(item => item.id !== game.id);
       localStorage.setItem("library", JSON.stringify(updated));
       setIsInlibrary(false);
     }
-  }
+  };
 
   return (
     <div className="details-container">
@@ -98,7 +97,7 @@ export const CardDetails = () => {
           <p className="genres">
             {game.genres?.map(g => g.name).join(", ")}
           </p>
-          <p className="genres">{game.price}</p>
+
           <button className="wishlist-btn" onClick={toggleWishlist}>
             {isInWishlist ? (
               <>
@@ -110,9 +109,13 @@ export const CardDetails = () => {
               </>
             )}
           </button>
-          <button className={`buy ${buy ?"remove-buy" :""}`} onClick={toggleBuy}>
-            {buy ? "Remove from library" : "Buy Now"}
-            </button>
+
+          <button
+            className={`buy ${isInlibrary ? "remove-buy" : ""}`}
+            onClick={toggleBuy}
+          >
+            {isInlibrary ? "Remove from library" : "Buy Now"}
+          </button>
         </div>
       </div>
 
@@ -122,5 +125,4 @@ export const CardDetails = () => {
       </div>
     </div>
   );
-
 };

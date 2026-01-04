@@ -3,7 +3,6 @@
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
 }
 
 .game-card:hover {
@@ -63,7 +62,7 @@
   color: #00d9ff;
 }
 
-.buy-btn {
+.view-details {
   width: 100%;
   padding: 12px;
   margin-top: 15px;
@@ -76,7 +75,10 @@
   transition: opacity 0.3s;
 }
 
-.buy-btn:hover {
+.view-details:hover {
   opacity: 0.9;
+  transform: translateY(-7px);
+  transition: transform 0.3s, box-shadow 0.3s;
+
 }
 
