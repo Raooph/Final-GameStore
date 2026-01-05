@@ -73,9 +73,7 @@ export const MyLibrary = () => {
                 {(game.playtime || Math.random() * 60 + 5).toFixed(1)} hrs
               </p>
 
-              <div className="card-overlay">
-                <p>{game.description_raw?.slice(0, 100)}...</p>
-              </div>
+           
 
               <div className="library-actions">
                 <button className="play-btn">Play</button>

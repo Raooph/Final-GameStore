@@ -7,13 +7,18 @@ export const fetchGenres = async () => {
   return data.results.slice(0, 4);
 };
 
-export const fetchGames = async ({ searchTerm, activeCategory }) => {
-  let url = `${BASE_URL}/games?key=${API_KEY}&page_size=12`;
+export const fetchGames = async ({ searchTerm, activeCategory, page = 1 }) => {
+  let url = `${BASE_URL}/games?key=${API_KEY}&page_size=12&page=${page}`;
 
   if (searchTerm) url += `&search=${searchTerm}`;
   if (activeCategory) url += `&genres=${activeCategory}`;
 
   const res = await fetch(url);
   const data = await res.json();
-  return data.results;
+  return {
+    results: data.results,
+    count: data.count,
+    next: data.next,
+    previous: data.previous,
+  };
 };
