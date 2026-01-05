@@ -33,7 +33,9 @@ export const Header = () => {
     <header className="header">
       <div className="container">
         <div className="header-content">
-          <NavLink to="/" className="logo">NEXUS</NavLink>
+          <NavLink to="/" className="logo" onClick={closeMenu}>
+            NEXUS
+          </NavLink>
 
           <nav className="nav">
             <NavLink to="/">Home</NavLink>
@@ -62,39 +64,49 @@ export const Header = () => {
 
         <div className={`mobile-menu ${menuOpen ? "mobile-menu-open" : ""}`}>
           <div className="mobile-menu-content">
-            <a href="/" className="mobile-nav-link" onClick={closeMenu}>
+            <NavLink to="/" className="mobile-nav-link" onClick={closeMenu}>
               <span className="link-number">01</span>
               <span className="link-text">Home</span>
               <span className="arrow">→</span>
-            </a>
+            </NavLink>
 
-            <a href="/wishlist" className="mobile-nav-link" onClick={closeMenu}>
+            <NavLink
+              to="/wishlist"
+              className="mobile-nav-link"
+              onClick={closeMenu}
+            >
               <span className="link-number">02</span>
               <span className="link-text">
                 Wishlist {wishlistCount > 0 && `(${wishlistCount})`}
               </span>
               <span className="arrow">→</span>
-            </a>
+            </NavLink>
 
-            <a href="/my-library" className="mobile-nav-link" onClick={closeMenu}>
+            <NavLink
+              to="/my-library"
+              className="mobile-nav-link"
+              onClick={closeMenu}
+            >
               <span className="link-number">03</span>
               <span className="link-text">
                 My Library {libraryCount > 0 && `(${libraryCount})`}
               </span>
               <span className="arrow">→</span>
-            </a>
+            </NavLink>
 
-            <a href="/login" className="mobile-nav-link" onClick={closeMenu}>
+            <NavLink
+              to="/login"
+              className="mobile-nav-link"
+              onClick={closeMenu}
+            >
               <span className="link-number">04</span>
               <span className="link-text">Login</span>
               <span className="arrow">→</span>
-            </a>
+            </NavLink>
           </div>
         </div>
 
-        {menuOpen && (
-          <div className="backdrop" onClick={closeMenu}></div>
-        )}
+        {menuOpen && <div className="backdrop" onClick={closeMenu}></div>}
       </div>
     </header>
   );
